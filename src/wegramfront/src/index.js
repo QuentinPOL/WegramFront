@@ -1,13 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './index.css';
-import App from './App';
+// import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Profil from "./composants/profil";
+import Connexion from "./composants/connexion";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <Routes>
+        <Route path="/profil" element={<Profil />} />
+        <Route path="/connexion" element={<Connexion />} />
+      </Routes>
+    </Router>
   </React.StrictMode>
 );
 
