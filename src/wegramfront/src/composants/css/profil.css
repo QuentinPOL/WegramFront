@@ -1,0 +1,361 @@
+:root {
+    --main-bg-color: #FFF;
+}
+
+
+html {
+    background-color: var(--main-bg-color);
+}
+
+/*-- INSTAGRAM MOCK LAYOUT - TESSISAMESS - 2016 --*/
+/*-- DO NOT REPOST, CHANGE CREDIT LINK, OR CLAIM AS YOUR OWN --*/
+/*-- Find more fun stuff at: tessisamess.insanejournal.com --*/
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Open Sans'), local('OpenSans'), url(https://fonts.gstatic.com/s/opensans/v13/cJZKeOuBrn4kERxqtaUH3VtXRa8TVwTICgirnJhmVJw.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 300;
+    src: local('Open Sans Light'), local('OpenSans-Light'), url(https://fonts.gstatic.com/s/opensans/v13/DXI1ORHCpsQm3Vp6mXoaTegdm0LZdjqr5-oayXSOefg.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
+body {
+    background: #fafafa;
+    font-family: Open Sans, Arial, Helvetica, sans-serif;
+    margin: 0;
+    font-weight: 400;
+}
+
+a {
+    text-decoration: none;
+    color: #003569;
+    font-weight: bold;
+}
+
+a:active {
+    opacity: 0.3;
+}
+
+#header {
+    height: 77px;
+    background: #fff url(http://i.imgur.com/wtCW5vm.png)center no-repeat;
+    border-bottom: 1px solid #dbdbdb;
+}
+
+#header div {
+    width: 934px;
+    margin: 0 auto;
+    padding: 1px 2px 0 2px;
+}
+
+#logo {
+    float: left;
+}
+
+#buttons {
+    float: right;
+}
+
+#content {
+    width: 960px;
+    margin: 0 auto;
+    color: #262626;
+}
+
+#account-info {
+    padding: 65px 12px 45px 12px;
+}
+
+.account-block {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: middle;
+}
+
+#avatar {
+    width: 34%;
+    text-align: center;
+}
+
+#avatar img {
+    width: 150px;
+    height: 150px;
+    border-radius: 152px;
+    background: #dbdbdb;
+    border: 1px solid #dbdbdb;
+}
+
+#details {
+    width: 66%;
+    font-size: 15px;
+}
+
+#details h1 {
+    font-weight: 300;
+    font-size: 30px;
+    display: inline-block;
+    height: 31px;
+    line-height: 28px;
+
+    /* background: url(http://i.imgur.com/kHN3Vtk.png)center right no-repeat; */
+    /* padding: 0 30px 0 0; */
+    margin: 0;
+    max-width: 66%;
+}
+
+#stats {
+    margin: 25px 0;
+}
+
+#stats div {
+    display: inline-block;
+    padding-right: 40px;
+}
+
+.post {
+    width: 293px;
+    height: 293px;
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+    margin: 0 12px 28px 12px;
+}
+
+.img {
+    width: 100%;
+    height: 100%;
+    background: #dbdbdb;
+}
+
+.post:hover .post-info {
+    opacity: 1;
+}
+
+.post-info {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    width: 293px;
+    height: 293px;
+    line-height: 293px;
+    background: rgba(0, 0, 0, 0.2);
+    color: #fff;
+    text-align: center;
+}
+
+.likes,
+.comments {
+    display: inline-block;
+    padding-left: 22px;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+.likes {
+    background: url(http://i.imgur.com/KxGhIjt.png)center left no-repeat;
+}
+
+.comments {
+    background: url(http://i.imgur.com/LETuhgd.png)center left no-repeat;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5);
+    visibility: hidden;
+    opacity: 0;
+    z-index: 600;
+}
+
+.overlay:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.close {
+    position: absolute;
+    font-size: 30px;
+    font-weight: bold;
+    color: #fff;
+    top: 5px;
+    right: 15px;
+}
+
+.full-post {
+    width: 935px;
+    height: 600px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    margin: -300px 0 0 -467.5px;
+    background: #fff;
+    font-size: 13px;
+}
+
+.max-img {
+    float: left;
+    width: 600px;
+    height: 600px;
+    background: #dbdbdb;
+    margin-right: 20px;
+}
+
+.post-content {
+    margin: 2px 2px 2px 602px;
+}
+
+.post-head {
+    font-weight: bold;
+    margin: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #efefef;
+    height: 40px;
+    line-height: 40px;
+    /* background: url()right 5px no-repeat; */
+}
+
+.post-head img {
+    float: left;
+    margin-right: 11px;
+    width: 38px;
+    height: 38px;
+    border-radius: 40px;
+    background: #dbdbdb;
+    border: 1px solid #dbdbdb;
+}
+
+.likes-date {
+    padding: 0 20px 20px 0;
+    font-size: 14px;
+}
+
+.likes-date i {
+    opacity: 0.7;
+    font-style: normal;
+    float: right;
+}
+
+.post-comments {
+    overflow: auto;
+    height: 394px;
+}
+
+.comment {
+    margin-bottom: 6px;
+}
+
+.comment i {
+    font-style: normal;
+    color: #003569;
+}
+
+#footer {
+    padding: 40px 12px;
+    font-size: 11px;
+}
+
+#footer b {
+    color: #003569;
+}
+
+#cred {
+    float: right;
+    color: #999;
+}
+
+#details button {
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 2px;
+    transition: background-color 0.3s ease;
+}
+
+.follow-btn {
+    width: 100px;
+    height: 30px;
+    background-color: #0095f6;
+    /* Instagram blue color */
+}
+
+.follow-btn:hover {
+    background-color: #0079d3;
+    /* Darker Instagram blue color on hover */
+}
+
+.follow-more-btn {
+    width: 30px;
+    height: 30px;
+    background-color: #0095f6;
+    /* Instagram blue color */
+}
+
+.follow-more-btn:hover {
+    background-color: #0079d3;
+    /* Darker Instagram blue color on hover */
+}
+
+#follow-more-bts-dot {
+    background-color: 0095f6;
+    /* No background color for the dots button */
+    color: black;
+    /* Black color for the dots */
+}
+
+/* Add content to the buttons */
+.follow-btn:after {
+    content: "Suivre";
+}
+
+.follow-more-btn:after {
+    content: "+";
+}
+
+#follow-more-bts-dot:after {
+    content: "...";
+}
+
+#follow-btn-container button {
+    margin-bottom: 2px;
+}
+
+#comment-btn {
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 2px;
+    transition: background-color 0.3s ease;
+    margin-left: 15px;
+}
+
+
+#user-description {
+    padding-top: 5px !important;
+    font-size: 14px !important;
+    max-width: 380px;
+    line-height: 20px !important;
+}
+
+#certified-logo{
+    height: 25px;
+    padding-left: 7px;
+    padding-right: 7px;
+}
+
