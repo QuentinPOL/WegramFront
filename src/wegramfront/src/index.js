@@ -6,6 +6,7 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Profil from "./composants/profil";
 import Connexion from "./composants/connexion";
+import Connexion from "./composants/InscriptionPage";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
