@@ -14,7 +14,7 @@ root.render(
     <Router>
       <Routes>
         <Route path="/profil" element={<Profil />} />
-        <Route path="/connexion" element={<Connexion />} />
+        <Route path="/" element={<Connexion />} />
         <Route path="/inscription" element={<Inscription />} />
       </Routes>
     </Router>

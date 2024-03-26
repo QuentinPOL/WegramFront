@@ -1,13 +1,64 @@
-// InscriptionPage.js
 import React, { useState, useEffect } from 'react';
 import './css/connexion.css'; 
-import './inscription.script'; 
 import { Link } from 'react-router-dom';
 import logo_wegram from './images/wegram.png';
-
-// import handleFormSubmit from './SendInscription'; // Import de la fonction pour envoyer les données
+import handleFormSubmit from './SendInscription'; // Import de la fonction pour envoyer les données
 
 function Inscription() {
+  const [nom, setNom] = useState('');
+  const [pseudo, setPseudo] = useState('');
+  const [email, setEmail] = useState('');
+  const [dateNaissance, setDateNaissance] = useState('');
+  const [password, setPassword] = useState('');
+  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
+
+  const handleNomChange = (event) => {
+    setNom(event.target.value);
+  };
+
+  const handlePseudoChange = (event) => {
+    setPseudo(event.target.value);
+  };
+
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
+  };
+
+  const handleDateNaissanceChange = (event) => {
+    setDateNaissance(event.target.value);
+  };
+
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    handleFormSubmit(nom, pseudo, email, password, dateNaissance);
+
+    // Réinitialiser les champs du formulaire après l'inscription
+    setNom('');
+    setPseudo('');
+    setEmail('');
+    setPassword('');
+    setDateNaissance('');
+  };
+
+  useEffect(() => {
+    setIsButtonDisabled(
+      nom.trim() === '' ||
+      pseudo.trim() === '' ||
+      email.trim() === '' ||
+      password.trim() === '' ||
+      dateNaissance.trim() === ''
+    );
+  }, [nom, pseudo, email, password, dateNaissance]);
+
+  const maxDate = new Date().toISOString().slice(0, 10);
+  // Définissez une classe CSS pour le bouton en fonction de la valeur de isButtonDisabled
+  const buttonClassName = isButtonDisabled ? 'disabled-button' : 'enabled-button';
+
   return (
     <main>
       <div className="login-root">
@@ -53,31 +104,31 @@ function Inscription() {
               <div className="formbg">
                 <div className="formbg-inner padding-horizontal--48"><img style={{width: "345px"}} alt='wegram_logo' src={logo_wegram} />
                   <span className="padding-bottom--15">S'inscrire</span>
-                  <form id="stripe-login">
+                  <form id="stripe-login" onSubmit={handleSubmit}>
                     <div className="field padding-bottom--24">
                       <label htmlFor="nom">Nom</label>
-                      <input type="nom" name="nom" />
+                      <input type="nom" name="nom" value={nom} onChange={handleNomChange} />
                     </div>
                     <div className="field padding-bottom--24">
                       <label htmlFor="pseudo">Pseudo</label>
-                      <input type="pseudo" name="pseudo" />
+                      <input type="pseudo" name="pseudo" value={pseudo} onChange={handlePseudoChange} />
                     </div>
                     <div className="field padding-bottom--24">
                       <label htmlFor="email">Email</label>
-                      <input type="email" name="email" />
+                      <input type="email" name="email" value={email} onChange={handleEmailChange} />
                     </div>
                     <div className="field padding-bottom--24">
                       <label htmlFor="date-naissance">Date de naissance</label>
-                      <input type="date" id="date-naissance" name="date-naissance" required/>
+                      <input type="date" id="date-naissance" name="date-naissance" value={dateNaissance} onChange={handleDateNaissanceChange} max={maxDate} required/>
                     </div>
                     <div className="field padding-bottom--24">
                       <div className="grid--50-50">
                         <label htmlFor="password">Mot de passe</label>
                       </div>                     
-                      <input type="password" name="password" />
+                      <input type="password" name="password" value={password} onChange={handlePasswordChange} />
                     </div>
                     <div className="field padding-bottom--24">
-                      <input type="submit" name="submit" value="S'inscrire" />
+                      <input type="submit" name="submit" value="S'inscrire" disabled={isButtonDisabled} className={buttonClassName} />
                     </div>
                     <div className="field">
                       <a className="ssolink" href="#">S'inscrire avec Google</a>
@@ -86,7 +137,7 @@ function Inscription() {
                 </div>
               </div>
               <div className="footer-link padding-top--24">
-                <span>Vous avez deja un compte? <Link to="/connexion">se connecter</Link></span>
+                <span>Vous avez deja un compte? <Link to="/">Se connecter</Link></span>
                 <div className="listing padding-top--24 padding-bottom--24 flex-flex center-center">
                   <span><a target='blank' href="https://hugotabary.fr">© HugoTablouray-dvd.fr</a></span>
                   <span><a href="#">insta : dams.lps</a></span>

@@ -1,9 +1,50 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router'; // Importez useHistory depuis 'react-router'
 import './css/connexion.css';
 import logo_wegram from './images/wegram.png';
+import handleLoginSubmit from './SendLogin'; // Assurez-vous que cette fonction est correctement importée depuis votre fichier SendLogin
 
 function Connexion() {
+  const history = useHistory();
+
+  const [emailOrPseudo, setEmailOrPseudo] = useState('');
+  const [password, setPassword] = useState('');
+  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const handleEmailOrPseudoChange = (event) => {
+    setEmailOrPseudo(event.target.value);
+  };
+
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value);
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      // Envoyer les données de connexion au backend
+      await handleLoginSubmit(emailOrPseudo, password);
+
+      // Réinitialiser les champs après la soumission réussie
+      setEmailOrPseudo('');
+      setPassword('');
+      setErrorMessage('');
+    } catch (error) {
+      // Gérer les erreurs de connexion
+      setErrorMessage('Identifiants invalides. Veuillez réessayer.');
+    }
+  };
+
+  useEffect(() => {
+    setIsButtonDisabled(emailOrPseudo.trim() === '' || password.trim() === '');
+  }, [emailOrPseudo, password]);
+
+  // Définissez une classe CSS pour le bouton en fonction de la valeur de isButtonDisabled
+  const buttonClassName = isButtonDisabled ? 'disabled-button' : 'enabled-button';
+
   return (
     <main>
 
@@ -51,10 +92,10 @@ function Connexion() {
               <div className="formbg">
                 <div className="formbg-inner padding-horizontal--48"><img style={{width: "345px"}} alt='wegram_logo' src={logo_wegram} />
                   <span className="padding-bottom--15">Se connecter</span>
-                  <form id="stripe-login">
+                  <form id="stripe-login" onSubmit={handleSubmit}>
                     <div className="field padding-bottom--24">
-                      <label htmlFor="email">Adresse mail</label>
-                      <input type="email" name="email" />
+                      <label htmlFor="email">Adresse mail / Pseudo</label>
+                      <input type="text" name="email" value={emailOrPseudo} onChange={handleEmailOrPseudoChange} />
                     </div>
                     <div className="field padding-bottom--24">
                       <div className="grid--50-50">
@@ -63,7 +104,7 @@ function Connexion() {
                           <a href="#">Mot de passe oublié?</a>
                         </div>
                       </div>
-                      <input type="password" name="password" />
+                      <input type="password" name="password" value={password} onChange={handlePasswordChange} />
                     </div>
                     <div className="field field-checkbox padding-bottom--24 flex-flex align-center">
                       <label htmlFor="checkbox">
@@ -71,16 +112,18 @@ function Connexion() {
                       </label>
                     </div>
                     <div className="field padding-bottom--24">
-                      <input type="submit" name="submit" value="Continue" />
+                      <input type="submit" name="submit" value="Continue" disabled={isButtonDisabled} className={buttonClassName} />
                     </div>
                     <div className="field">
                       <a className="ssolink" href="#">Se connecter avec Google</a>
                     </div>
                   </form>
+
+                  {errorMessage && <p className="error-message">{errorMessage}</p>}
                 </div>
               </div>
               <div className="footer-link padding-top--24">
-                <span>Vous n'avez pas de compte? <Link to="/inscription">s'inscrire</Link></span>
+                <span>Vous n'avez pas de compte? <Link to="/inscription">S'inscrire</Link></span>
                 <div className="listing padding-top--24 padding-bottom--24 flex-flex center-center">
                   <span><a target='blank' href="https://hugotabary.fr">© HugoTablouray-dvd.fr</a></span>
                   <span><a href="#">insta : dams.lps</a></span>

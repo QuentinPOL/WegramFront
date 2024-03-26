@@ -1,6 +1,6 @@
 import React from 'react';
 import './css/profil.css';
-
+import logo_wegram from './images/wegram.png';
 function Profil() {
     return (
         // <div className="container">
@@ -19,9 +19,9 @@ function Profil() {
 
                     <div id="header">
                         <div>
-                            <img alt="error" src="http://i.imgur.com/plINmgz.png" id="logo" />
+                        <img style={{width: "130px"}} alt='wegram_logo' src={logo_wegram} />
                             <button class="heart-button">
-                                <i class="gg-heart"></i> 
+                                   
                             </button>
                             <img alt="error" src="http://i.imgur.com/IKW6MsQ.png" id="buttons" />
                         </div>

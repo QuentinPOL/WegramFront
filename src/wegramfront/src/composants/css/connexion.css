@@ -168,6 +168,15 @@ input[type="submit"] {
     font-weight: 600;
     cursor: pointer;
 }
+
+/* Ajoutez cette règle CSS pour gérer le cas où le bouton est désactivé */
+input[type="submit"]:disabled {
+  background-color: gray;
+  box-shadow: none;
+  color: white;
+  cursor: not-allowed;
+}
+
 .field-checkbox input {
     width: 20px;
     height: 15px;
