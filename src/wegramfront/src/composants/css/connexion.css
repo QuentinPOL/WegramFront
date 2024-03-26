@@ -1,272 +1,275 @@
+* {
+  padding: 0;
+  margin: 0;
+  color: #1a1f36;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Ubuntu,sans-serif;
+}
 body {
-  background-color: #33cc33;
-  font-family: sans-serif;
+    min-height: 100%;
+    background-color: #ffffff;
 }
-body fieldset {
-  box-shadow: 0 8px 10px #29a329;
-}
-
-body.error {
-  background: #f04000;
-}
-body.error fieldset {
-  box-shadow: 0 8px 10px #bd3200;
-}
-
-h1, h2 {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  font-family: sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-
 h1 {
-  top: 24px;
-  color: white;
-  font-size: 12px;
+    letter-spacing: -1px;
+}
+a {
+  color: #5469d4;
+  text-decoration: unset;
+}
+.login-root {
+    background: #fff;
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+}
+.loginbackground {
+    min-height: 692px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 0;
+    overflow: hidden;
+}
+.flex-flex {
+    display: flex;
+}
+.align-center {
+  align-items: center; 
+}
+.center-center {
+  align-items: center;
+  justify-content: center;
+}
+.box-root {
+    box-sizing: border-box;
+}
+.flex-direction--column {
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+.loginbackground-gridContainer {
+  display: grid;
+  grid-template-columns: [start] 1fr [left-gutter] repeat(16, 86.6px) [left-gutter] 1fr [end];
+  grid-template-rows: [top] 1fr [top-gutter] repeat(8, 64px) [bottom-gutter] 1fr [bottom];
+  justify-content: center;
+  margin: 0 -2%;
+  transform: rotate(-12deg) skew(-12deg);
 }
 
-h2 {
-  top: 44px;
-  color: white;
-  font-size: 10px;
-  opacity: 0.7;
+
+.box-divider--light-all-2 {
+    box-shadow: inset 0 0 0 2px #e3e8ee;
+}
+.box-background--blue {
+    background-color: #5469d4;
+}
+.box-background--white {
+  background-color: #ffffff; 
+}
+.box-background--blue800 {
+    background-color: #212d63;
+}
+.box-background--gray100 {
+    background-color: #e3e8ee;
+}
+.box-background--cyan200 {
+    background-color: #7fd3ed;
+}
+.padding-top--64 {
+  padding-top: 64px;
+}
+.padding-top--24 {
+  padding-top: 24px;
+}
+.padding-top--48 {
+  padding-top: 48px;
+}
+.padding-bottom--24 {
+  padding-bottom: 24px;
+}
+.padding-horizontal--48 {
+  padding: 48px;
+}
+.padding-bottom--15 {
+  padding-bottom: 15px;
 }
 
-ul.items {
-  position: absolute;
-  width: 30px;
-  height: auto;
-  top: 50%;
-  left: -60px;
-  transform: translateY(-50%);
-  list-style: none;
-}
-ul.items li {
-  width: 8px;
-  height: 8px;
-  margin: 10px 0;
-  background: white;
-  border-radius: 50%;
-  opacity: 0.4;
-  cursor: pointer;
-}
-ul.items li.active {
-  opacity: 1;
+
+.flex-justifyContent--center {
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
-form {
-  position: absolute;
-  width: 300px;
-  height: 60px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.formbg {
+    margin: 0px auto;
+    width: 100%;
+    max-width: 448px;
+    background: white;
+    border-radius: 4px;
+    box-shadow: rgba(60, 66, 87, 0.12) 0px 7px 14px 0px, rgba(0, 0, 0, 0.12) 0px 3px 6px 0px;
 }
-form fieldset {
-  position: absolute;
-  width: 300px;
-  height: 60px;
-  background: white;
-  border-radius: 3px;
-  opacity: 0;
-  transform: scale(0.2);
-  transition: all 0.4s ease-in-out;
+span {
+    display: block;
+    font-size: 20px;
+    line-height: 28px;
+    color: #1a1f36;
 }
-form fieldset input, form fieldset p {
-  display: inline-block;
-  width: 200px;
-  margin-left: 50px;
-  color: #333333;
-  font-size: 16px;
-  letter-spacing: 1px;
+label {
+    margin-bottom: 10px;
 }
-form fieldset p {
-  margin-top: 22px;
-  text-align: center;
+.reset-pass a,label {
+    font-size: 14px;
+    font-weight: 600;
+    display: block;
 }
-form fieldset input {
-  height: 40px;
-  margin-top: 8px;
-  border: none;
-  outline: none;
+.reset-pass > a {
+    text-align: right;
+    margin-bottom: 10px;
 }
-form fieldset .icon {
-  position: absolute;
-  width: 30px;
-  height: 30px;
-  top: 15px;
-  transition: all 0.4s ease;
-}
-form fieldset .icon i {
-  position: absolute;
-  display: block;
-}
-form fieldset .icon i::before, form fieldset .icon i::after {
-  position: absolute;
-  content: "";
-}
-form fieldset .icon.left {
-  left: 10px;
-}
-form fieldset .icon.right {
-  right: 10px;
-  cursor: pointer;
-}
-form fieldset .icon.button:hover {
-  background: #f2f2f2;
-  border-radius: 3px;
-  transition: all 0.4s ease;
-}
-form fieldset.enable {
-  z-index: 1;
-  opacity: 1;
-  transition: all 0.5s ease-out 0.2s;
-  transform: scale(1);
-  animation: enable 0.5s ease-out 0.2s;
-}
-form fieldset.disable {
-  opacity: 0;
-  transition: all 0.3s ease-in;
-  transform: translateY(120px) scale(0.9);
+.grid--50-50 {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    align-items: center;
 }
 
-body.error fieldset {
-  transform-origin: 50% 100%;
-  animation: error 0.3s ease-out;
+.field input {
+    font-size: 16px;
+    line-height: 28px;
+    padding: 8px 16px;
+    width: 100%;
+    min-height: 44px;
+    border: unset;
+    border-radius: 4px;
+    outline-color: rgb(84 105 212 / 0.5);
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+                rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+                rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+                rgba(60, 66, 87, 0.16) 0px 0px 0px 1px, 
+                rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+                rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+                rgba(0, 0, 0, 0) 0px 0px 0px 0px;
 }
 
-@keyframes enable {
+input[type="submit"] {
+    background-color: rgb(84, 105, 212);
+    box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+                rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+                rgba(0, 0, 0, 0.12) 0px 1px 1px 0px, 
+                rgb(84, 105, 212) 0px 0px 0px 1px, 
+                rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+                rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+                rgba(60, 66, 87, 0.08) 0px 2px 5px 0px;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+}
+.field-checkbox input {
+    width: 20px;
+    height: 15px;
+    margin-right: 5px; 
+    box-shadow: unset;
+    min-height: unset;
+}
+.field-checkbox label {
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+a.ssolink {
+    display: block;
+    text-align: center;
+    font-weight: 600;
+}
+.footer-link span {
+    font-size: 14px;
+    text-align: center;
+}
+.listing a {
+    color: #697386;
+    font-weight: 600;
+    margin: 0 10px;
+}
+
+.animationRightLeft {
+  animation: animationRightLeft 2s ease-in-out infinite;
+}
+.animationLeftRight {
+  animation: animationLeftRight 2s ease-in-out infinite;
+}
+.tans3s {
+  animation: animationLeftRight 3s ease-in-out infinite;
+}
+.tans4s {
+  animation: animationLeftRight 4s ease-in-out infinite;
+}
+
+@keyframes animationLeftRight {
   0% {
-    opacity: 0;
-    transform: scale(0.2);
+    transform: translateX(0px);
   }
-  60% {
-    transform: scale(1.1);
+  50% {
+    transform: translateX(1000px);
   }
   100% {
-    opacity: 1;
-    transform: scale(1);
+    transform: translateX(0px);
   }
-}
-@keyframes error {
-  0%, 50%, 100% {
-    transform: rotate(0deg);
+} 
+
+@keyframes animationRightLeft {
+  0% {
+    transform: translateX(0px);
   }
-  25% {
-    transform: rotate(-3deg);
+  50% {
+    transform: translateX(-1000px);
   }
-  75% {
-    transform: rotate(3deg);
+  100% {
+    transform: translateX(0px);
   }
-}
-/**
- * * Icons in CSS, long as f****
- * */
-.icon .arrow {
-  width: 2px;
-  height: 17px;
-  top: 5px;
-  left: 14px;
-  background: #333333;
-}
-.icon .arrow::before {
-  width: 6px;
-  height: 6px;
-  bottom: -1px;
-  left: -3px;
-  border-color: #333333;
-  border-right: 2px solid;
-  border-bottom: 2px solid;
-  transform: rotate(45deg);
+} 
+/* Style pour le label */
+label[for="date-naissance"] {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 8px;
 }
 
-.icon .user {
-  width: 20px;
-  height: 10px;
-  bottom: 5px;
-  left: 5px;
-  box-shadow: 0 0 0 2px #333333 inset;
-  border-radius: 6px 6px 3px 3px;
-}
-.icon .user::before {
-  width: 10px;
-  height: 10px;
-  top: -9px;
-  left: 5px;
-  box-shadow: 0 0 0 2px #333333 inset;
-  border-radius: 50%;
+/* Style pour le champ de date */
+input[type="date-naissance"] {
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.icon .letter {
-  width: 20px;
-  height: 12px;
-  top: 9px;
-  left: 5px;
-  box-shadow: 0 0 0 2px #333333 inset;
-  border-radius: 3px;
-}
-.icon .letter::before, .icon .letter::after {
-  width: 11px;
-  height: 2px;
-  top: 4px;
-  background: #333333;
-}
-.icon .letter::before {
-  left: 0;
-  transform: rotate(30deg);
-}
-.icon .letter::after {
-  right: 0;
-  transform: rotate(-30deg);
+/* Style pour le placeholder */
+input[type="date-naissance"]::placeholder {
+  color: #999;
 }
 
-.icon .lock {
-  width: 20px;
-  height: 16px;
-  top: 9px;
-  left: 5px;
-  box-shadow: 0 0 0 2px #333333 inset;
-  border-radius: 3px;
-}
-.icon .lock::before {
-  width: 8px;
-  height: 8px;
-  top: -4px;
-  left: 4px;
-  border: 2px solid transparent;
-  border-top: 2px solid #333333;
-  border-right: 2px solid #333333;
-  border-radius: 50%;
-  transform: rotate(-45deg);
-}
-.icon .lock::after {
-  width: 6px;
-  height: 7px;
-  top: 4px;
-  left: 7px;
-  box-shadow: 0 0 0 2px #333333 inset;
+/* Style pour les bordures du champ actif */
+input[type="date-naissance"]:focus {
+  outline: none;
+  border-color: #5cb85c; /* Couleur de bordure quand le champ est actif */
+  box-shadow: 0 0 5px #5cb85c; /* Ombre autour du champ quand il est actif */
 }
 
-.icon .heart {
-  width: 10px;
-  height: 10px;
-  top: 11px;
-  left: 7px;
-  background: #ff5233;
-  transform: rotate(45deg);
+/* Style pour limiter les dates futures */
+input[type="date-naissance"] {
+  max-width: 180px; /* Limite la largeur du champ pour éviter le débordement */
 }
-.icon .heart::before, .icon .heart::after {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #ff5233;
+
+input[type="date-naissance"]::-webkit-calendar-picker-indicator {
+  display: none; /* Cache l'indicateur de sélection de date (le calendrier) */
 }
-.icon .heart::before {
-  left: -6px;
-}
-.icon .heart::after {
-  top: -6px;
+
+input[type="date-naissance"]::-webkit-inner-spin-button,
+input[type="date-naissance"]::-webkit-clear-button {
+  display: none; /* Cache les boutons de spinner et de clear */
 }

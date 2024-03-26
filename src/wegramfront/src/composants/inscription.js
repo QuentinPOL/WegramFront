@@ -1,155 +1,102 @@
 // InscriptionPage.js
 import React, { useState, useEffect } from 'react';
 import './css/connexion.css'; 
+import './inscription.script'; 
 import { Link } from 'react-router-dom';
+import logo_wegram from './images/wegram.png';
+
 // import handleFormSubmit from './SendInscription'; // Import de la fonction pour envoyer les données
 
 function Inscription() {
-  const [nom, setNom] = useState('');
-  const [prenom, setPrenom] = useState('');
-  const [pseudo, setPseudo] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
-
-  const handleNomChange = (event) => {
-    setNom(event.target.value);
-  };
-
-  const handlePrenomChange = (event) => {
-    setPrenom(event.target.value);
-  };
-
-  const handlePseudoChange = (event) => {
-    setPseudo(event.target.value);
-  };
-
-  const handleEmailChange = (event) => {
-    setEmail(event.target.value);
-  };
-
-  const handlePasswordChange = (event) => {
-    setPassword(event.target.value);
-  };
-
-  const handleConfirmPasswordChange = (event) => {
-    setConfirmPassword(event.target.value);
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    if (password !== confirmPassword) {
-      console.error('Les mots de passe ne correspondent pas');
-      return;
-    }
-
-    // handleFormSubmit(nom, prenom, pseudo, email, password);
-    
-    // Réinitialiser les champs du formulaire après l'inscription
-    setNom('');
-    setPrenom('');
-    setPseudo('');
-    setEmail('');
-    setPassword('');
-    setConfirmPassword('');
-  };
-
-  useEffect(() => {
-    setIsButtonDisabled(
-      nom.trim() === '' ||
-      prenom.trim() === '' ||
-      pseudo.trim() === '' ||
-      email.trim() === '' ||
-      password.trim() === '' ||
-      confirmPassword.trim() === '' ||
-      password !== confirmPassword
-    );
-  }, [nom, prenom, pseudo, email, password, confirmPassword]);
-
   return (
-    <main className="flex align-items-center justify-content-center">
-      <section id="mobile" className="flex">
-        <img alt="Phone img" src="https://media.gcflearnfree.org/content/633d944b3823fb02e84dce55_10_05_2022/Screen%20Shot%202022-10-10%20at%202.28.19%20PM.png" className="phone-image" />
-      </section>
-      <section id="auth" className="flex direction-column">
-        <div className="panel register flex direction-column" >
-          <h1 title="Instagram" className="flex justify-content-center">
-            <img alt="wegram img" src="./wegram.png" className="logo-image" />
-          </h1>
-          <form onSubmit={handleSubmit}>
-            <input
-              name="nom"
-              placeholder="Nom"
-              value={nom}
-              onChange={handleNomChange}
-            />
-            <input
-              name="prenom"
-              placeholder="Prénom"
-              value={prenom}
-              onChange={handlePrenomChange}
-            />
-            <input
-              name="pseudo"
-              placeholder="Pseudo"
-              value={pseudo}
-              onChange={handlePseudoChange}
-            />
-            <input
-              name="email"
-              placeholder="Email"
-              value={email}
-              onChange={handleEmailChange}
-            />
-            <input
-              name="password"
-              type="password"
-              placeholder="Mot de passe"
-              value={password}
-              onChange={handlePasswordChange}
-            />
-            <input
-              name="confirmPassword"
-              type="password"
-              placeholder="Confirmer le mot de passe"
-              value={confirmPassword}
-              onChange={handleConfirmPasswordChange}
-            />
-            <button
-              type="submit"
-              className={`login-button ${isButtonDisabled ? 'disabled' : ''} ${!isButtonDisabled ? 'filled' : ''}`}
-              disabled={isButtonDisabled}
-            >
-              S'inscrire
-            </button>
-          </form>
-        </div>
-        <div className="panel register flex justify-content-center">
-            <p style={{ color: 'black' }}>Vous avez  un compte ?</p>
-            <Link to="/connexion">Connectez-vous</Link>
+    <main>
+      <div className="login-root">
+        <div className="box-root flex-flex flex-direction--column" style={{ minHeight: "100vh", flexGrow: 1 }}>
+          <div className="loginbackground box-background--white padding-top--64">
+            <div className="loginbackground-gridContainer">
+              <div className="box-root flex-flex" style={{ gridArea: "top / start / 8 / end" }}>
+                <div className="box-root" style={{ backgroundImage: "linear-gradient(white 0%, rgb(247, 250, 252) 33%)", flexGrow: 1 }}>
+                </div>
+              </div>
+              <div className="box-root flex-flex" style={{ gridArea: "4 / 2 / auto / 5" }}>
+                <div className="box-root box-divider--light-all-2 animationLeftRight tans3s" style={{ flexGrow: 1 }}></div>
+              </div>
+              <div className="box-root flex-flex" style={{ gridArea: "6 / start / auto / 2" }}>
+                <div className="box-root box-background--blue800" style={{ flexGrow: 1 }}></div>
+              </div>
+              <div className="box-root flex-flex" style={{ gridArea: "7 / start / auto / 4" }}>
+                <div className="box-root box-background--blue animationLeftRight" style={{ flexGrow: 1 }}></div>
+              </div>
+              <div className="box-root flex-flex" style={{ gridArea: "8 / 4 / auto / 6" }}>
+                <div className="box-root box-background--gray100 animationLeftRight tans3s" style={{ flexGrow: 1 }}></div>
+              </div>
+              <div className="box-root flex-flex" style={{ gridArea: "2 / 15 / auto / end" }}>
+                <div className="box-root box-background--cyan200 animationRightLeft tans4s" style={{ flexGrow: 1 }}></div>
+              </div>
+              <div className="box-root flex-flex" style={{ gridArea: "3 / 14 / auto / end" }}>
+                <div className="box-root box-background--blue animationRightLeft" style={{ flexGrow: 1 }}></div>
+              </div>
+              <div className="box-root flex-flex" style={{ gridArea: "4 / 17 / auto / 20" }}>
+                <div className="box-root box-background--gray100 animationRightLeft tans4s" style={{ flexGrow: 1 }}></div>
+              </div>
+              <div className="box-root flex-flex" style={{ gridArea: "5 / 14 / auto / 17" }}>
+                <div className="box-root box-divider--light-all-2 animationRightLeft tans3s" style={{ flexGrow: 1 }}></div>
+              </div>
+            </div>
           </div>
-      </section>
-      <footer className="footer">
-        <div className="footer-links">
-          <a href="http://bit.ly/wegram">wegram</a>
-          <a href="http://google.com">À propos</a>
-          <a href="http://google.com">Blog</a>
-          <a href="http://google.com">Emplois</a>
-          <a href="http://google.com">Aide</a>
-          <a href="http://google.com">API</a>
-          <a href="http://google.com">Confidentialité</a>
-          <a href="http://google.com">Paramètres des cookies</a>
-          <a href="http://google.com">Conditions</a>
-          <a href="http://google.com">Lieux</a>
-          <a href="http://google.com">wegram Lite</a>
-          <a href="http://google.com">Youtube</a>
+          <div className="box-root padding-top--24 flex-flex flex-direction--column" style={{ flexGrow: 1, zIndex: 9 }}>
+            <div className="box-root padding-top--48 padding-bottom--24 flex-flex flex-justifyContent--center">
+              {/* <h1><a href="http://blog.stackfindover.com/" rel="dofollow">Stackfindover</a></h1> */}
+              
+            </div>
+            <div className="formbg-outer">
+              <div className="formbg">
+                <div className="formbg-inner padding-horizontal--48"><img style={{width: "345px"}} alt='wegram_logo' src={logo_wegram} />
+                  <span className="padding-bottom--15">S'inscrire</span>
+                  <form id="stripe-login">
+                    <div className="field padding-bottom--24">
+                      <label htmlFor="nom">Nom</label>
+                      <input type="nom" name="nom" />
+                    </div>
+                    <div className="field padding-bottom--24">
+                      <label htmlFor="pseudo">Pseudo</label>
+                      <input type="pseudo" name="pseudo" />
+                    </div>
+                    <div className="field padding-bottom--24">
+                      <label htmlFor="email">Email</label>
+                      <input type="email" name="email" />
+                    </div>
+                    <div className="field padding-bottom--24">
+                      <label htmlFor="date-naissance">Date de naissance</label>
+                      <input type="date" id="date-naissance" name="date-naissance" required/>
+                    </div>
+                    <div className="field padding-bottom--24">
+                      <div className="grid--50-50">
+                        <label htmlFor="password">Mot de passe</label>
+                      </div>                     
+                      <input type="password" name="password" />
+                    </div>
+                    <div className="field padding-bottom--24">
+                      <input type="submit" name="submit" value="S'inscrire" />
+                    </div>
+                    <div className="field">
+                      <a className="ssolink" href="#">S'inscrire avec Google</a>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div className="footer-link padding-top--24">
+                <span>Vous avez deja un compte? <Link to="/connexion">se connecter</Link></span>
+                <div className="listing padding-top--24 padding-bottom--24 flex-flex center-center">
+                  <span><a target='blank' href="https://hugotabary.fr">© HugoTablouray-dvd.fr</a></span>
+                  <span><a href="#">insta : dams.lps</a></span>
+                  <span><a href="#">Privacy & terms</a></span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="footer-copy">
-          <p>© 2024 wegram par Provi</p>
-        </div>
-      </footer>
+      </div>
     </main>
   );
 }
