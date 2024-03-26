@@ -1,10 +1,10 @@
 // InscriptionPage.js
 import React, { useState, useEffect } from 'react';
-import './LoginPage.css'; 
+import './css/connexion.css'; 
 import { Link } from 'react-router-dom';
-import handleFormSubmit from './SendInscription'; // Import de la fonction pour envoyer les données
+// import handleFormSubmit from './SendInscription'; // Import de la fonction pour envoyer les données
 
-function InscriptionPage() {
+function Inscription() {
   const [nom, setNom] = useState('');
   const [prenom, setPrenom] = useState('');
   const [pseudo, setPseudo] = useState('');
@@ -45,7 +45,7 @@ function InscriptionPage() {
       return;
     }
 
-    handleFormSubmit(nom, prenom, pseudo, email, password);
+    // handleFormSubmit(nom, prenom, pseudo, email, password);
     
     // Réinitialiser les champs du formulaire après l'inscription
     setNom('');
@@ -71,12 +71,12 @@ function InscriptionPage() {
   return (
     <main className="flex align-items-center justify-content-center">
       <section id="mobile" className="flex">
-        <img alt="Phone img" src="./auth.png" className="phone-image" />
+        <img alt="Phone img" src="https://media.gcflearnfree.org/content/633d944b3823fb02e84dce55_10_05_2022/Screen%20Shot%202022-10-10%20at%202.28.19%20PM.png" className="phone-image" />
       </section>
       <section id="auth" className="flex direction-column">
         <div className="panel register flex direction-column" >
           <h1 title="Instagram" className="flex justify-content-center">
-            <img alt="Provigram img" src="./Provigram.png" className="logo-image" />
+            <img alt="wegram img" src="./wegram.png" className="logo-image" />
           </h1>
           <form onSubmit={handleSubmit}>
             <input
@@ -128,30 +128,30 @@ function InscriptionPage() {
         </div>
         <div className="panel register flex justify-content-center">
             <p style={{ color: 'black' }}>Vous avez  un compte ?</p>
-            <Link to="/">Connectez-vous</Link>
+            <Link to="/connexion">Connectez-vous</Link>
           </div>
       </section>
       <footer className="footer">
         <div className="footer-links">
-          <a href="http://bit.ly/proviflix">Proviflix</a>
-          <a href="#">À propos</a>
-          <a href="#">Blog</a>
-          <a href="#">Emplois</a>
-          <a href="#">Aide</a>
-          <a href="#">API</a>
-          <a href="#">Confidentialité</a>
-          <a href="#">Paramètres des cookies</a>
-          <a href="#">Conditions</a>
-          <a href="#">Lieux</a>
-          <a href="#">Provigram Lite</a>
-          <a href="#">Youtube</a>
+          <a href="http://bit.ly/wegram">wegram</a>
+          <a href="http://google.com">À propos</a>
+          <a href="http://google.com">Blog</a>
+          <a href="http://google.com">Emplois</a>
+          <a href="http://google.com">Aide</a>
+          <a href="http://google.com">API</a>
+          <a href="http://google.com">Confidentialité</a>
+          <a href="http://google.com">Paramètres des cookies</a>
+          <a href="http://google.com">Conditions</a>
+          <a href="http://google.com">Lieux</a>
+          <a href="http://google.com">wegram Lite</a>
+          <a href="http://google.com">Youtube</a>
         </div>
         <div className="footer-copy">
-          <p>© 2024 Provigram par Provi</p>
+          <p>© 2024 wegram par Provi</p>
         </div>
       </footer>
     </main>
   );
 }
 
-export default InscriptionPage;
+export default Inscription;

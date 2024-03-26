@@ -6,7 +6,7 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Profil from "./composants/profil";
 import Connexion from "./composants/connexion";
-import Connexion from "./composants/InscriptionPage";
+import Inscription from "./composants/inscription";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -15,6 +15,7 @@ root.render(
       <Routes>
         <Route path="/profil" element={<Profil />} />
         <Route path="/connexion" element={<Connexion />} />
+        <Route path="/inscription" element={<Inscription />} />
       </Routes>
     </Router>
   </React.StrictMode>
