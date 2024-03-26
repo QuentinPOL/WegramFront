@@ -134,9 +134,4 @@ function Connexion() {
           </div>
         </div>
       </div>
-    </main>
-  );
-}
-
-
-export default Connexion;
+    </main
