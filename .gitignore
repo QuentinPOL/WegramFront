@@ -17,6 +17,9 @@ yarn-error.log*
 .vscode
 .idea
 
+
+/template
+
 # OS-specific files
 .DS_Store
 Thumbs.db
