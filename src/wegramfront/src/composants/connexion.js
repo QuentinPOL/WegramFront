@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { useHistory } from 'react-router'; // Importez useHistory depuis 'react-router'
 import './css/connexion.css';
 import logo_wegram from './images/wegram.png';
 import handleLoginSubmit from './SendLogin'; // Assurez-vous que cette fonction est correctement importée depuis votre fichier SendLogin
 
 function Connexion() {
-  const history = useHistory();
-
   const [emailOrPseudo, setEmailOrPseudo] = useState('');
   const [password, setPassword] = useState('');
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
@@ -25,9 +22,9 @@ function Connexion() {
     event.preventDefault();
 
     try {
+
       // Envoyer les données de connexion au backend
       await handleLoginSubmit(emailOrPseudo, password);
-
       // Réinitialiser les champs après la soumission réussie
       setEmailOrPseudo('');
       setPassword('');
@@ -134,4 +131,9 @@ function Connexion() {
           </div>
         </div>
       </div>
-    </main
+    </main>
+  );
+}
+
+
+export default Connexion;

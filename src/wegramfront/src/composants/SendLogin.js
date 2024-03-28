@@ -17,12 +17,19 @@ const handleLoginSubmit = async (emailOrPseudo, password) => {
         body: JSON.stringify(formData)
       });
 
-      if (response.ok) {
+      if (response.status === 200) {
+        // Connexion réussie
         console.log('Connexion réussie !');
-        // Gérer la redirection ou les actions après la connexion réussie
+        // Redirection vers la page de profil ou autres actions après la connexion réussie
+        window.location.href = '/profil';
+      } else if (response.status === 401) {
+        // Identifiants invalides
+        console.error('Identifiants invalides. Veuillez réessayer.');
+        // Afficher un message à l'utilisateur ou d'autres actions en cas d'échec de la connexion
       } else {
-        console.error('Échec de la connexion');
-        // Gérer les erreurs en cas d'échec de la connexion
+        // Autres erreurs
+        console.error('Une erreur s\'est produite lors de la connexion.');
+        // Gérer les autres erreurs, afficher un message générique à l'utilisateur par exemple
       }
     } catch (error) {
       console.error('Erreur lors de la tentative de connexion :', error);
