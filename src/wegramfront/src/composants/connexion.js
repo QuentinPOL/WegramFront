@@ -20,21 +20,16 @@ function Connexion() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
-    try {
-
-      // Envoyer les données de connexion au backend
-      await handleLoginSubmit(emailOrPseudo, password);
-      // Réinitialiser les champs après la soumission réussie
-      setEmailOrPseudo('');
-      setPassword('');
-      setErrorMessage('');
-    } catch (error) {
-      // Gérer les erreurs de connexion
-      setErrorMessage('Identifiants invalides. Veuillez réessayer.');
+  
+    const result = await handleLoginSubmit(emailOrPseudo, password);
+  
+    if (result.success) {
+      // Redirection vers la page de profil ou autres actions après la connexion réussie
+      window.location.href = '/profil';
+    } else if (result.error) {
+      setErrorMessage(result.error);
     }
   };
-
   useEffect(() => {
     setIsButtonDisabled(emailOrPseudo.trim() === '' || password.trim() === '');
   }, [emailOrPseudo, password]);
@@ -83,11 +78,11 @@ function Connexion() {
           <div className="box-root padding-top--24 flex-flex flex-direction--column" style={{ flexGrow: 1, zIndex: 9 }}>
             <div className="box-root padding-top--48 padding-bottom--24 flex-flex flex-justifyContent--center">
               {/* <h1><a href="http://blog.stackfindover.com/" rel="dofollow">Stackfindover</a></h1> */}
-              
+
             </div>
             <div className="formbg-outer">
               <div className="formbg">
-                <div className="formbg-inner padding-horizontal--48"><img style={{width: "345px"}} alt='wegram_logo' src={logo_wegram} />
+                <div className="formbg-inner padding-horizontal--48"><img style={{ width: "345px" }} alt='wegram_logo' src={logo_wegram} />
                   <span className="padding-bottom--15">Se connecter</span>
                   <form id="stripe-login" onSubmit={handleSubmit}>
                     <div className="field padding-bottom--24">
@@ -113,10 +108,9 @@ function Connexion() {
                     </div>
                     <div className="field">
                       <a className="ssolink" href="#">Se connecter avec Google</a>
+                      <h1 className='error-field'>{errorMessage}</h1>
                     </div>
                   </form>
-
-                  {errorMessage && <p className="error-message">{errorMessage}</p>}
                 </div>
               </div>
               <div className="footer-link padding-top--24">

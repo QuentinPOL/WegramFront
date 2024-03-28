@@ -45,9 +45,8 @@ a:active {
 }
 
 #header {
-    height: 77px;
-    background: #fff url(http://i.imgur.com/wtCW5vm.png)center no-repeat;
-    border-bottom: 1px solid #dbdbdb;
+    height: 80px;
+    border-bottom: 2px solid #dbdbdb;
 }
 
 #header div {
