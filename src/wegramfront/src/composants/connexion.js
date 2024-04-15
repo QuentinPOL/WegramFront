@@ -25,7 +25,7 @@ function Connexion() {
   
     if (result.success) {
       // Redirection vers la page de profil ou autres actions après la connexion réussie
-      window.location.href = '/profil';
+      window.location.href = '/profile';
     } else if (result.error) {
       setErrorMessage(result.error);
     }
@@ -39,8 +39,6 @@ function Connexion() {
 
   return (
     <main>
-
-
       <div className="login-root">
         <div className="box-root flex-flex flex-direction--column" style={{ minHeight: "100vh", flexGrow: 1 }}>
           <div className="loginbackground box-background--white padding-top--64">

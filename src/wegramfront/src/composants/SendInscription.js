@@ -33,7 +33,7 @@ const handleFormSubmit = async (nom, pseudo, email, password, dateNaissance) => 
       Cookies.set('authToken', token);
 
       // Redirection vers la page de profil ou autres actions après la connexion réussie
-      window.location.href = '/profil';
+      window.location.href = '/profile';
       return { success: true };
     }
     else if (response.status === 400) {

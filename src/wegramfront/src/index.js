@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './index.css';
-import Profil from "./composants/profil";
+import Profil from "./composants/pages/profile/Profile";
 import Connexion from "./composants/connexion";
 import Inscription from "./composants/inscription";
 import PrivateRoute from "./composants/PrivateRoute";
@@ -12,7 +12,7 @@ root.render(
   <React.StrictMode>
     <Router>
       <Routes>
-        <Route path="/profil" element={
+        <Route path="/profile" element={
           <PrivateRoute>
             <Profil />
           </PrivateRoute>
